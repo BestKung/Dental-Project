@@ -1,6 +1,6 @@
-package dental;
+package th.co.geniustree.dental;
 
-import co.th.geniusterr.DentalApplication;
+import th.co.geniustree.dental.DentalApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.web.WebAppConfiguration;
