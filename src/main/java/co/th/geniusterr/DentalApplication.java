@@ -1,4 +1,4 @@
-package dental;
+package co.th.geniusterr;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

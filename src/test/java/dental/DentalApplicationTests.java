@@ -1,5 +1,6 @@
 package dental;
 
+import co.th.geniusterr.DentalApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.web.WebAppConfiguration;
