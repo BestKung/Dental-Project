@@ -5,17 +5,18 @@
  */
 package th.co.geniustree.dental.config;
 
-import javax.validation.Validator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 /**
  *
- * @author kekhuay
+ * @author pramoth
  */
 @Configuration
 public class BeanValidationConfig {
+
     @Bean
     public Validator validator() {
         return new LocalValidatorFactoryBean();
