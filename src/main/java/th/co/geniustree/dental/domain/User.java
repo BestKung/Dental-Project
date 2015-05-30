@@ -1,13 +1,18 @@
 package th.co.geniustree.dental.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Objects;
+import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
@@ -22,6 +27,14 @@ public class User implements UserDetails, Serializable {
     private String name;
     private String password;
     private Boolean enabled = Boolean.TRUE;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "USERS_ROLES",
+            joinColumns = @JoinColumn(name = "USERS_EMAIL",
+                    foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT), nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "ROLES_AUTHORITY",
+                    foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT), nullable = false))
+    private Collection<Role> autorities;
 
     public String getEmail() {
         return email;
@@ -48,8 +61,20 @@ public class User implements UserDetails, Serializable {
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.emptySet();
+    public Collection<Role> getAuthorities() {
+        if (this.autorities == null) {
+            this.autorities = new ArrayList<>();
+        }
+        return autorities;
+    }
+
+    public void addRole(Role role) {
+        getAuthorities().add(role);
+
+    }
+
+    public void setAutorities(Collection<Role> autorities) {
+        this.autorities = autorities;
     }
 
     @Override
