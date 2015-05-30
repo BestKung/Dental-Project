@@ -28,6 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().formLogin()
+                .loginPage("/login").permitAll()
                 .defaultSuccessUrl("/")
                 .permitAll()
                 .and()
@@ -38,7 +39,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/console/*");
+        web.ignoring().antMatchers("/console/**");
+        web.ignoring().antMatchers("/static/**");
     }
 
 }
