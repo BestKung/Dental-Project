@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form th:action="@{/customer/new}" method="POST">
+                    <table>
+                    <tr>
+                        <td><label id="lahn">HN : </label></td>
+                        <td><input type="text"  <!--th:field="*{hn}"-->/>
+                            <small></small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label id="lapid">Position ID : </label></td>
+                        <td><input <!--th:field="*{pid}"-->/></td>
+                    </tr>
+                    <tr>
+                        <td> <label id="lanameth">Name_TH : </label></td>
+                        <td><input<!--th:field="*{name_th}"-->/></td>
+                    </tr>
+                    <tr>
+                        <td> <label id="lanameen">Name_EN : </label></td>
+                        <td><input <!--th:field="*{name_en}"-->/></td>
+                    </tr>
+                    <tr>
+                        <td> <label id="labirthday">BirthDay : </label></td>
+                        <td><input <!--th:field="*{birthday}"-->/></td>
+                    </tr>
+                    <tr>
+                        <td> <label id="laage">Age : </label></td>
+                        <td><input <!--th:field="*{age}"-->/></td>
+                    </tr>
+                    <tr>
+                        <td> <label id="lasex">Sex : </label></td>
+                        <td><input  <!--th:field="*{sex}"-->/></td>
+                    </tr>
+                    <tr>
+                        <td> <label id="lablood">Blood : </label></td>
+                        <td><input  <!--th:field="*{blood}"-->/></td>
+                    </tr>
+                    <tr>
+                        <td><button>Submit</button></td>
+                    </tr>
+                   
+                </table>
+                </form>
+    </body>
+</html>

@@ -18,16 +18,16 @@
         <link th:href="@{/bower_components/metisMenu/dist/metisMenu.min.css}" rel="stylesheet">
 
         <!-- Timeline CSS -->
-        <link href="../dist/css/timeline.css" rel="stylesheet">
+        <link href="@{/dist/css/timeline.css}" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+        <link href="@{/dist/css/sb-admin-2.css}" rel="stylesheet">
 
         <!-- Morris Charts CSS -->
-        <link href="../bower_components/morrisjs/morris.css" rel="stylesheet">
+        <link href="@{/bower_components/morrisjs/morris.css}" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="@{/bower_components/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -320,64 +320,67 @@
                 </div>
 
 
-                <table>
+              <form th:action="@{/customer/new}" th:object="${customer}"  method="POST">
+                    <table>
                     <tr>
                         <td><label id="lahn">HN : </label></td>
-                        <td><input id=""/></td>
+                        <td><input type="text"  th:field="*{hn}"/>
+                            <small></small>
+                        </td>
                     </tr>
                     <tr>
                         <td><label id="lapid">Position ID : </label></td>
-                        <td><input id="inputpid"/></td>
+                        <td><input th:field="*{pid}"/></td>
                     </tr>
                     <tr>
                         <td> <label id="lanameth">Name_TH : </label></td>
-                        <td><input id="inputnameth"/></td>
+                        <td><input th:field="*{name_th}"/></td>
                     </tr>
                     <tr>
                         <td> <label id="lanameen">Name_EN : </label></td>
-                        <td><input id="inputnameen"/></td>
+                        <td><input th:field="*{name_en}"/></td>
                     </tr>
                     <tr>
                         <td> <label id="labirthday">BirthDay : </label></td>
-                        <td><input id="inputbirthday"/></td>
+                        <td><input th:field="*{birthday}"/></td>
                     </tr>
                     <tr>
                         <td> <label id="laage">Age : </label></td>
-                        <td><input id="inputage"/></td>
+                        <td><input th:field="*{age}"/></td>
                     </tr>
                     <tr>
                         <td> <label id="lasex">Sex : </label></td>
-                        <td><input id="inputsex"/></td>
+                        <td><input  th:field="*{sex}"/></td>
                     </tr>
                     <tr>
                         <td> <label id="lablood">Blood : </label></td>
-                        <td><input id="inputblood"/></td>
+                        <td><input  th:field="*{blood}"/></td>
                     </tr>
                     <tr>
                         <td><button>Submit</button></td>
                     </tr>
                    
                 </table>
-
+                </form>
             </div>          
             <!-- /#wrapper -->
 
             <!-- jQuery -->
-            <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+            <script src="@{/bower_components/jquery/dist/jquery.min.js}"></script>
 
             <!-- Bootstrap Core JavaScript -->
-            <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+            <script src="@{/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
 
             <!-- Metis Menu Plugin JavaScript -->
-            <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+            <script src="@{/bower_components/metisMenu/dist/metisMenu.min.js}"></script>
 
             <!-- Morris Charts JavaScript -->
-            <script src="../bower_components/raphael/raphael-min.js"></script>
-            <script src="../bower_components/morrisjs/morris.min.js"></script>
-            <script src="../js/morris-data.js"></script>
+            <script src="@{/bower_components/raphael/raphael-min.js}"></script>
+            <script src="@{/bower_components/morrisjs/morris.min.js}"></script>
+            <script src="@{/js/morris-data.js}"></script>
 
             <!-- Custom Theme JavaScript -->
-            <script src="../dist/js/sb-admin-2.js"></script>
+            <script src="@{/dist/js/sb-admin-2.js}"></script>
             <style>
                 tr{
                    height: 30px
