@@ -10,7 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import th.co.geniustree.dental.domain.User;
-import th.co.geniustree.dental.repository.UserRepository;
 import th.co.geniustree.dental.service.UserService;
 
 /**
@@ -41,5 +40,10 @@ public class UserController {
         userService.save(user);
         model.addAttribute("user", new User());
         return "user/forms";
+    }
+    
+    @RequestMapping(value = "user")
+    public String list() {
+        return "user/users";
     }
 }
