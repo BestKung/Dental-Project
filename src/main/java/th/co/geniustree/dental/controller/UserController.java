@@ -43,7 +43,7 @@ public class UserController {
         }
         userService.save(user);
         model.addAttribute("user", new User());
-        return "user/forms";
+        return "redirect:/user";
     }
     
     @RequestMapping(value = "/user")
