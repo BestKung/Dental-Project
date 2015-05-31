@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
@@ -23,9 +24,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class User implements UserDetails, Serializable {
 
     @Id
+    @NotBlank(message = "ต้องใส่ email นะจ๊ะ")
     private String email;
     private String name;
     private String password;
+    private String mobile;
     private Boolean enabled = Boolean.TRUE;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -105,6 +108,15 @@ public class User implements UserDetails, Serializable {
     public boolean isEnabled() {
         return enabled;
     }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+    
 
     @Override
     public int hashCode() {
